@@ -1,4 +1,4 @@
-# SPSISTANBUL 2019 Sample WebPart and Slide
+# SPSISTANBUL 2019 Sample WebPart and Slide (SPFx CI/CD Pipelines on Azure DevOps)
 
 ## Preview
 

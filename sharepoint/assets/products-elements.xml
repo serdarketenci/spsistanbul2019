@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/"> 
+   
+     <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
+    <Field Name="Price" ID="{6cc7f1e1-0d1e-44d5-88ef-bf15c9757dad}" DisplayName="Price" Type="Number" />
+    <Field Name="ImageUri" ID="{f6212ade-8281-45e1-8c4e-ba5b3ef9e08a}" DisplayName="Image URL" Type="Text" />
+  
+      <ContentType ID="0x01008b18f3d769d4440f96e903ad1c086192" Name="ProductContentType" Group="SPSSaturday Content Types" Description="This is the Content Type for Product"> 
+      <FieldRefs>
+          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
+          <FieldRef ID="{6cc7f1e1-0d1e-44d5-88ef-bf15c9757dad}" Name="Price" />
+          <FieldRef ID="{f6212ade-8281-45e1-8c4e-ba5b3ef9e08a}" Name="ImageUri" />
+        </FieldRefs>
+    </ContentType> 
+    <ListInstance CustomSchema="products-schema.xml" FeatureId="00bfea71-de22-43b2-a848-c05709900100" Title="EShop Products" Description="EShop Products" TemplateType="100" Url="Lists/EShopProducts"> 
+        <Data> 
+<Rows> 
+<Row> 
+<Field Name="Title">SP Bags</Field> 
+<Field Name="ImageUri">https://www.kaft.com/static/images/productcategory/bag-hover.png</Field> 
+<Field Name="Price">211</Field> 
+</Row> 
+<Row> 
+<Field Name="Title">SP T-Shirt</Field> 
+<Field Name="ImageUri">https://www.kaft.com/static/images/tee3d/0349_1_E.jpg</Field> 
+<Field Name="Price">40</Field> 
+</Row> 
+<Row> 
+<Field Name="Title">SP Hoodie</Field> 
+<Field Name="ImageUri">https://www.kaft.com/static/images/hoodie2/0424_1.jpg</Field> 
+<Field Name="Price">98</Field> 
+</Row> 
+<Row> 
+<Field Name="Title">SP Beanie</Field> 
+<Field Name="ImageUri">https://www.kaft.com/static/images/cache/922/bere_kleurendokocean_9070_922_922.jpg</Field> 
+<Field Name="Price">210</Field> 
+</Row> 
+</Rows> 
+</Data> </ListInstance> 
+</Elements>

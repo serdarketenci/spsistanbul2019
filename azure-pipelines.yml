@@ -1,0 +1,93 @@
+resources:
+- repo: self
+trigger:
+- master
+- develop
+pool:
+  vmImage: 'ubuntu-latest'
+  demands:
+  - npm
+  - node.js
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+steps:
+#PrepareSonarQube
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SPSSaturday-SonarQube'
+    scannerMode: 'CLI'
+    configMode: 'file'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.branch.name=master
+    
+#install node 10.x
+- task: NodeTool@0
+  displayName: 'Use Node 10.x'
+  inputs:
+    versionSpec: 10.x
+    checkLatest: true
+
+#cache files from previous run
+- task: CacheBeta@1
+  inputs:
+    key: npm | $(Agent.OS) | package-lock.json
+    path: $(npm_config_cache)
+    cacheHitVar: CACHE_RESTORED
+
+#install nodejs modules with npm
+- script: npm ci
+  displayName: 'npm ci'
+
+  #run jest
+- script: |
+    npm run test
+  displayName: 'npm run test (Jest)'
+
+# Publish Test Results to Azure Pipelines/TFS
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/junit.xml'
+  displayName: 'Publish test results'
+
+#bundle code with gulp
+- task: Gulp@0
+  displayName: 'gulp bundle'
+  inputs:
+    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
+    targets: bundle
+    arguments: '--ship'
+  continueOnError: true
+
+#package solution with gulp
+- task: Gulp@0
+  displayName: 'gulp package-solution'
+  inputs:
+    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
+    targets: 'package-solution'
+    arguments: '--ship'
+
+#copy files to artifact repository
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/drop'
+  inputs:
+    Contents: '**/*.sppkg'
+    TargetFolder: '$(build.artifactstagingdirectory)/drop'
+
+#analyze SonarQube
+- task: SonarQubeAnalyze@4
+
+#publish SonarQube
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
+
+#publish artifacts
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact:  drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)/drop'

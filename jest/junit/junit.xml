@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="1" time="5.037">
+  <testsuite name="Enzyme basics" errors="0" failures="0" skipped="0" timestamp="2019-12-12T19:05:49" time="2.242" tests="2">
+    <testcase classname="Enzyme basics should has the correct message" name="Enzyme basics should has the correct message" time="0.036">
+    </testcase>
+    <testcase classname="Enzyme basics should has the correct icon name" name="Enzyme basics should has the correct icon name" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="component renders properly" errors="0" failures="1" skipped="0" timestamp="2019-12-12T19:05:51" time="0.14" tests="1">
+    <testcase classname="component renders properly snapshot should match" name="component renders properly snapshot should match" time="0.01">
+      <failure>Error: expect(value).toMatchSnapshot()
+
+Received value does not match stored snapshot 1.
+
+- Snapshot
++ Received
+
+@@ -3,9 +3,12 @@
+  &gt;
+    &lt;StyledIconBase
+      className=&quot;css-33&quot;
+      iconName=&quot;Accept&quot;
+    /&gt;
++   &lt;div&gt;
++     test
++   &lt;/div&gt;
+    &lt;StyledLabelBase&gt;
+      test2
+    &lt;/StyledLabelBase&gt;
+  &lt;/div&gt;
+    at Object.&lt;anonymous&gt; (/Users/serdarketenci/Desktop/Works/SPFx/Demo2/SPSSaturday/src/webparts/eShop/tests/OrderMessage.test.tsx:16:29)
+    at Object.asyncFn (/Users/serdarketenci/Desktop/Works/SPFx/Demo2/SPSSaturday/node_modules/jest-cli/node_modules/jest-jasmine2/build/jasmine_async.js:82:37)
+    at resolve (/Users/serdarketenci/Desktop/Works/SPFx/Demo2/SPSSaturday/node_modules/jest-cli/node_modules/jest-jasmine2/build/queue_runner.js:52:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/serdarketenci/Desktop/Works/SPFx/Demo2/SPSSaturday/node_modules/jest-cli/node_modules/jest-jasmine2/build/queue_runner.js:39:19)
+    at promise.then (/Users/serdarketenci/Desktop/Works/SPFx/Demo2/SPSSaturday/node_modules/jest-cli/node_modules/jest-jasmine2/build/queue_runner.js:73:82)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

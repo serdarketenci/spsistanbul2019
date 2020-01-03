@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sps-saturday-client-side-solution",
+    "id": "0eab73c2-285d-48d1-817a-ff87b8f848bc",
+    "version": "1.0.0.0",
+    "features": [
+      {
+        "title": "E-Shop Lists",
+        "description": "E-Shop Lists",
+        "id": "b9b8ff66-1a1e-47f6-ace8-668df461da48",
+        "version": "1.0.0.0",
+        "assets": {
+          "elementManifests": [
+            "products-elements.xml",
+            "orders-elements.xml"
+          ],
+          "elementFiles": [
+            "products-schema.xml",
+            "orders-schema.xml"
+          ]
+        }
+      }
+    ],
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/sps-saturday.sppkg"
+  }
+}

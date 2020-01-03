@@ -1,0 +1,6 @@
+projectKey=SPSSaturday
+serverUrl=https://sonarqube-azureappservicebf37.azurewebsites.net
+serverVersion=8.0.0.29455
+dashboardUrl=https://sonarqube-azureappservicebf37.azurewebsites.net/dashboard?id=SPSSaturday
+ceTaskId=AW70Ef5RTM9XeeYMp36y
+ceTaskUrl=https://sonarqube-azureappservicebf37.azurewebsites.net/api/ce/task?id=AW70Ef5RTM9XeeYMp36y

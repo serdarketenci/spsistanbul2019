@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/"> 
+   
+     <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" />
+    <Field Name="Quantity" ID="{e8f307be-456a-4926-8928-13e272a23ead}" DisplayName="Quantity" Type="Number" />
+    <Field Name="ProductId" ID="{a34defdd-993f-4678-99ca-60de5380e64b}" DisplayName="ProductId" Type="Text" />
+  
+      <ContentType ID="0x010042D0C1C200A14B6887742B6344675C8B" Name="OrdersContentType" Group="SPSSaturday Content Types" Description="This is the Content Type for Orders"> 
+      <FieldRefs>
+          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" />
+          <FieldRef ID="{e8f307be-456a-4926-8928-13e272a23ead}" Name="Quantity" />
+          <FieldRef ID="{a34defdd-993f-4678-99ca-60de5380e64b}" Name="ProductId" />
+        </FieldRefs>
+    </ContentType> 
+    <ListInstance CustomSchema="orders-schema.xml" FeatureId="00bfea71-de22-43b2-a848-c05709900100" Title="EShop Orders" Description="EShop Orders" TemplateType="100" Url="Lists/EShopOrders"> 
+    </ListInstance> 
+</Elements>

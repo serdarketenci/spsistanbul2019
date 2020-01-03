@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component renders properly snapshot should match 1`] = `
+<div
+  className="css-34"
+>
+  <StyledIconBase
+    className="css-33"
+    iconName="Accept"
+  />
+  <StyledLabelBase>
+    test2
+  </StyledLabelBase>
+</div>
+`;
